@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+    <title>RACS</title>
+</head>
+
+<div class='top1'>
+    <a href="{{ url_for('index') }}">Home</a>
+</div>
+
+<div class='head1'>
+    <p>ABC Restaurant</p>
+  </div>
+  
+
+<body>
+    <center>
+        <div class='login1'>
+            <form method = 'POST' action = '/dashboard' }}>
+                <table>
+                    <tr>
+                        <td>
+                            Username
+                        </td> 
+                        <td></td> 
+                        <td></td>
+                        <td>
+                            <input type='text' size='50' name='username' autofocus required>
+                        </td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr></tr>
+                    <tr>
+                        <td>
+                            Password
+                        </td>  
+                        <td></td>
+                        <td></td>
+                        <td>
+                            <input type='password' size='50' name='password' autofocus required>
+                        </td>
+                    </tr>
+                </table> 
+                <br><br>
+                <input type='submit' value='Login'>            
+            </form>
+        </div>
+    </center>
+</body>
+</html>
+
+
+
+ 

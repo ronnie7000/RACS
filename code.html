@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/dashboard.css') }}">
+    <title>RACS</title>
+</head>
+
+<div class='top1'>
+    <a href="{{ url_for('login') }}">Logout</a>
+</div>
+
+<div class='head1'>
+    <p>ABC Restaurant</p>
+</div>
+
+    <body>
+        <center>
+            <p style='font-size: x-large;'> There are {{ n }} negative reviews and {{ p }} positive reviews</p>
+            <br><br><br>
+            <form action="{{ url_for('graph') }}">
+                <input type="submit" value='Pie Chart'>
+            </form>
+        </center>
+    </body>
+</html>

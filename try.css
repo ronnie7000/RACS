@@ -1,0 +1,21 @@
+a{
+    color: cornsilk;
+}
+
+div.top1{
+    text-align:right;
+}
+
+div.head1{
+    text-align: center;
+    font-size: 7vw;
+    text-shadow: 3px 2px black;
+}
+
+body{
+    background-color: cornflowerblue;
+    background-image: url('/static/img/8.jpg');
+    background-size: cover; 
+    color: cornsilk; 
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

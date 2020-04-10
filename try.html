@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title> Bootstrap 101 </title>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+        
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+        
+    </head>
+
+    <script>
+        function sub()
+        {
+         window.alert('Review Submitted');
+        }
+   </script>
+   
+   <div class='top1'>
+     <a href="{{ url_for('login') }}">Login</a>
+   </div>  
+   
+   <div class='head1'>
+     <p>ABC Restaurant</p>
+   </div>
+   
+   <body>
+    <form>
+        <div class="form-group">
+          <label for="exampleInputEmail1">Email address</label>
+          <input class="form-control form-control-lg" type="text" placeholder="Enter Your Review">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+     </form>
+   </body>
+</html>
