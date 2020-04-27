@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Happy+Monkey&family=Pacifico&family=Yeseva+One&display=swap" rel="stylesheet">
+    <title>RACS</title>
+</head>
+
+<script>
+     function sub()
+     {
+      window.alert('Review Submitted');
+     }
+</script>
+
+<div class='top1'>
+  <a href="{{ url_for('login') }}" class='button'>Login</a>
+</div>  
+
+<div class='head1'>
+  <p>Cafe L'Amour</p>
+</div>
+
+<body>
+    <div class='body1'>
+      <center>
+        <form method="POST" action="{{ url_for('submit') }}" style='font-family:tahoma'"> 
+          <input type="text" id='text1' size='100' name='t1' placeholder='Enter your review'>
+          <br><br><br><br>
+          <input type='submit' value='Submit' onClick='sub()'>
+        </form>
+        <br><br>
+      </center>
+    </div>
+    
+    <div class='about'>
+      <p> </p>
+    </div>
+</body>
+</html>
