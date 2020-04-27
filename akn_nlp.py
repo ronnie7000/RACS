@@ -59,20 +59,26 @@ def backend():
     df = pd.DataFrame(count)
     df.to_csv('ans.csv')
         
-
     neg = count[0]
     pos = count[1]    
     
     plt.switch_backend('agg')
-    labels = 'Negative Reviews' , 'Positive Reviews'
+    labels = ['Negative Reviews' , 'Positive Reviews']
     size = [neg,pos]
-    colors = ['lavender','cornflowerblue']
+    colors = ['peachpuff','peru']
     explode = (0,0.1)
     
-    plt.pie(size, explode=explode, labels=labels, colors=colors,
-        autopct='%1.1f%%', shadow=True)
-
+    plt.figure(1)
+    plt.pie(size, explode=explode, labels=labels, colors=colors, autopct='%1.1f%%', shadow=True)
     plt.axis('equal')
     plt.savefig('C:/Users/nirma/Desktop/College/6 sem/Minor 2/static/img/res.png')    
     
+    y_pos = np.arange(len(labels))
+
+    plt.figure(2)
+    plt.bar(y_pos, size, align='center', alpha=0.5, color = 'sandybrown', width = 0.5)
+    plt.xticks(y_pos, labels)
+    plt.title('Reviews')
+    plt.savefig('C:/Users/nirma/Desktop/College/6 sem/Minor 2/static/img/bres.png')  
+         
 backend()
