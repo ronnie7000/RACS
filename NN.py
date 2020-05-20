@@ -1,14 +1,16 @@
 # Logistic regression and one layer Neural Network approach to classify the reviews
 
+#importing the libraries
 import numpy as np
 import pandas as pd
 import matplotlib as plt
 import sklearn
 from sklearn.metrics import accuracy_score, confusion_matrix
 
-
+#importing dataset
 dataset = pd.read_csv('r.tsv', delimiter = '\t')
 
+#cleaning of the data
 import re
 import nltk
 nltk.download('stopwords')
@@ -24,6 +26,7 @@ for i in range(0, 1105):
     review = ' '.join(review)
     corpus.append(review)
 
+#feature extraction
 from sklearn.feature_extraction.text import CountVectorizer
 cv = CountVectorizer(max_features = 1500)
 X = cv.fit_transform(corpus).toarray()
@@ -43,14 +46,12 @@ print(' Test Set Score = ', logclf.score(X_test, Y_test))
 
 
 
-
-
 #NN
 Y = y.reshape(1105,1) 
 Y = Y.T
 X = X.T
 
-
+#sigmoid activation function
 def sigmoid (z):
     ans = 1/(1+np.exp(-z))
     return ans
@@ -59,7 +60,7 @@ n_x = X.shape[0]
 n_h = 5
 n_y = Y.shape[0]
 
-
+#parameters intialization function
 def initialize_parameters(n_x, n_h, n_y):
    
     W1=np.random.randn(n_h,n_x)*.01
@@ -79,7 +80,7 @@ def initialize_parameters(n_x, n_h, n_y):
     
     return parameters
 
-
+#forward propagation function
 def forward_propagation(X, parameters):
     W1=parameters["W1"]
     W2=parameters["W2"]
@@ -100,7 +101,7 @@ def forward_propagation(X, parameters):
     
     return A2, cache    
     
-
+#cost evaluation function
 def compute_cost(A2, Y, parameters):
     m = Y.shape[1]
 
@@ -111,7 +112,7 @@ def compute_cost(A2, Y, parameters):
     
     return cost
 
-    
+#backward propagation function
 def backward_propagation(parameters, cache, X, Y):
     m = X.shape[1]
     W1 = parameters["W1"]
@@ -135,7 +136,7 @@ def backward_propagation(parameters, cache, X, Y):
     
     return grads
 
-
+#gradient descent
 def update_parameters(parameters, grads, learning_rate = 1.2):
     W1 = parameters["W1"]
     b1 = parameters["b1"]
@@ -157,7 +158,7 @@ def update_parameters(parameters, grads, learning_rate = 1.2):
             "b2": b2}
     return parameters
 
-
+#NN model function
 def model(X,Y, iter = 10000, print_cost = False):
     parameters = initialize_parameters(n_x, n_h, n_y)
     
@@ -171,7 +172,7 @@ def model(X,Y, iter = 10000, print_cost = False):
 
     return parameters
 
-
+#prediction function
 def predict(parameters, X):
     A2, cache = forward_propagation(X, parameters)
     predictions = np.round(A2)
@@ -182,10 +183,10 @@ def predict(parameters, X):
 
 parameters = model(X,Y, iter = 10000, print_cost = True)
 nn_pred = predict(parameters, X)
-print (' Neural Network Accuracy: %d' % float((np.dot(Y,nn_pred.T) + np.dot(1-Y,1-nn_pred.T))/float(Y.size)*100) + '%')
 
 cm = confusion_matrix(Y.T, nn_pred.T)
+acc = cm[0][0] + cm[1][1] / n_x
 
-    
+print("Neural Network accuracy : ",acc)
     
     
