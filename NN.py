@@ -181,10 +181,10 @@ def predict(parameters, X):
     return predictions
 
 
-parameters = model(X,Y, iter = 10000, print_cost = True)
-nn_pred = predict(parameters, X)
+parameters = model(X_train,Y_train, iter = 10000, print_cost = True)
+nn_pred = predict(parameters, X_test)
 
-cm = confusion_matrix(Y.T, nn_pred.T)
+cm = confusion_matrix(Y_test, nn_pred.T)
 acc = cm[0][0] + cm[1][1] / n_x
 
 print("Neural Network accuracy : ",acc)
